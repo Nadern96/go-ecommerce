@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "01183d6d-57eb-4072-a3f6-65fb409f8af3",
+		"name": "go-ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8622129"
+	},
+	"item": [
+		{
+			"name": "Sign up",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjgyZDU3M2Y3ZDgzNzQ2MzA5ZTliODIiLCJpYXQiOjE2MDI0MDk4NDR9.fT6WrLequRvZoUB2-r6CothkjD9OVH5gvISZljRHpcc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"nader\",\r\n    \"lastName\": \"Mansour\",\r\n    \"phone\": \"01200289838\",\r\n    \"email\": \"nader@gmail.com\",\r\n    \"password\": \"nadermaan9\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nader@gmail.com\",\r\n    \"password\": \"nadermaan9\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"acer predator\",\n    \"price\": 3000,\n    \"rating\": 10,\n    \"image\": \"acer.jpg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/admin/add-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"admin",
+						"add-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/view-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"view-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/search?name=ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ac"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/add-to-cart?id=63b85f8b009b14a9a3626989&userID=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"add-to-cart"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85f8b009b14a9a3626989"
+						},
+						{
+							"key": "userID",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove from cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/remove-item?id=63b85f9f009b14a9a362698a&userID=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"remove-item"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85f9f009b14a9a362698a"
+						},
+						{
+							"key": "userID",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List cart items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/list-cart?id=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"list-cart"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"house\": \"Nader house\",\n    \"street\": \"Nader street\",\n    \"city\": \"washington\",\n    \"pinCode\": \"336423532\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/add-address?id=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"add-address"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit home address",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"house\": \"Nader house\",\n    \"street\": \"Nader street\",\n    \"city\": \"Cairo\",\n    \"pinCode\": \"336423532\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/edit-home-address?id=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"edit-home-address"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit work Address",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"house\": \"Nader house\",\n    \"street\": \"Nader street\",\n    \"city\": \"Cairo\",\n    \"pinCode\": \"336423532\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/edit-work-address?id=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"edit-work-address"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete addresses",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"house\": \"Nader house\",\n    \"street\": \"Nader street\",\n    \"city\": \"Cairo\",\n    \"pinCode\": \"336423532\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/delete-addresses?id=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"delete-addresses"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart checkout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/cart-checkout?id=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cart-checkout"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Instant buy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im5hZGVyQGdtYWlsLmNvbSIsIkZpcnN0TmFtZSI6Im5hZGVyIiwiTGFzdE5hbWUiOiJNYW5zb3VyIiwiVWlkIjoiNjNiODVlMTkwMDliMTRhOWEzNjI2OTg2IiwiZXhwIjoxNjczMTEzNDk3fQ.fxRQsS7dkG4q4GPRLLaISYCOQLDkbBSbBTsaWWOUSjE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/instant-buy?id=63b85f8b009b14a9a3626989&userID=63b85e19009b14a9a3626986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"instant-buy"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b85f8b009b14a9a3626989"
+						},
+						{
+							"key": "userID",
+							"value": "63b85e19009b14a9a3626986"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -50,32 +50,27 @@ func SignUp() gin.HandlerFunc {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-		log.Println("go sign up 1")
 		validationErrr := Validate.Struct(user)
 		if validationErrr != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": validationErrr})
 			return
 		}
-		log.Println("go sign up 2")
 		count, err := UserCollection.CountDocuments(ctx, bson.M{"email": user.Email})
 		if err != nil {
 			log.Panic(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
-		log.Println("go sign up 3")
 		if count > 0 {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "User already exists"})
 			return
 		}
-		log.Println("go sign up 4")
 		count, err = UserCollection.CountDocuments(ctx, bson.M{"phone": user.Phone})
 		if err != nil {
 			log.Panic(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
-		log.Println("go sign up 5")
 		if count > 0 {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "This phone number is already in use"})
 			return
@@ -97,7 +92,6 @@ func SignUp() gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "The user did not get created"})
 			return
 		}
-		log.Println("go sign up 6")
 		c.JSON(http.StatusCreated, "Succefully signed up!")
 	}
 }
